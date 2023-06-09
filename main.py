@@ -1,12 +1,31 @@
-import requests
-import time
-from colorama import init, Fore
-from colorama import Back
+print('Louding...\n')
+try:
+    import time
+    time.sleep(0.2)
+    print(f'time_version==True')
+    time.sleep(0.2)
+except:
+    print('module ERROR')
+    exit()
+try:
+    import requests
+    print(f'request_version=={requests.__version__}')
+    time.sleep(0.2)
+except:
+    print('module ERROR')
+    exit()
+try:
+    from colorama import init, Fore
+    from colorama import Back
+    print(f'colorama_version==True')
+    time.sleep(1)
+except:
+    print('module ERROR')
+    exit()
 
-print (requests.__version__)
 def main():
-    link = input('ссылка на сайт :')
-    num = int(input('число запросов :'))
+    link = input(Fore.RED + 'ссылка на сайт :')
+    num = int(input(Fore.RED + 'число запросов :'))
     requests_setings(url=link,num_requests=num)
 
 def TrueSendGetRequests(url,num_requests):
@@ -23,12 +42,9 @@ def TrueSendGetRequests(url,num_requests):
             false += 1
             print(Fore.RED + 'запрос откланён')
     print('\n\n')
-    print(Back.WHITE + Fore.BLACK + f"успешных запросов - {true}\nошибочных запросов - {false}")
-    a = input('\nнажмите ENTER для выхода или введите рандомный символ а затем ENTER:')
-    if a == '' :
-        exit()
-    else:
-        main()
+    print(f"\nуспешных запросов - {true}\nошибочных запросов - {false} \n")
+
+    main()
 
 def FalseSendGetRequests():
     main()
@@ -42,15 +58,22 @@ def requests_setings(url, num_requests):
         FalseSendGetRequests()
 
 if __name__ == '__main__' :
+    init(autoreset=True)
     print('run\n\n')
     time.sleep(2)
-    hallo = """
-    ██████╗░██████╗░░█████╗░░██████╗░░░░░░██████╗░░█████╗░██████╗░██████╗░
-    ██╔══██╗██╔══██╗██╔══██╗██╔════╝░░░░░░╚════██╗██╔══██╗╚════██╗╚════██╗
-    ██║░░██║██║░░██║██║░░██║╚█████╗░█████╗░░███╔═╝██║░░██║░░███╔═╝░█████╔╝
-    ██║░░██║██║░░██║██║░░██║░╚═══██╗╚════╝██╔══╝░░██║░░██║██╔══╝░░░╚═══██╗
-    ██████╔╝██████╔╝╚█████╔╝██████╔╝░░░░░░███████╗╚█████╔╝███████╗██████╔╝
-    ╚═════╝░╚═════╝░░╚════╝░╚═════╝░░░░░░░╚══════╝░╚════╝░╚══════╝╚═════╝░
-    """
-    print(hallo)
+    print(Fore.GREEN + '██████╗░██████╗░░█████╗░░██████╗░░░░░░██████╗░░█████╗░██████╗░██████╗░')
+    time.sleep(0.3)
+    print(Fore.GREEN + '██╔══██╗██╔══██╗██╔══██╗██╔════╝░░░░░░╚════██╗██╔══██╗╚════██╗╚════██╗')
+    time.sleep(0.3)
+    print(Fore.GREEN + '██║░░██║██║░░██║██║░░██║╚█████╗░█████╗░░███╔═╝██║░░██║░░███╔═╝░█████╔╝')
+    time.sleep(0.3)
+    print(Fore.GREEN + '██║░░██║██║░░██║██║░░██║░╚═══██╗╚════╝██╔══╝░░██║░░██║██╔══╝░░░╚═══██╗')
+    time.sleep(0.3)
+    print(Fore.GREEN + '██████╔╝██████╔╝╚█████╔╝██████╔╝░░░░░░███████╗╚█████╔╝███████╗██████╔╝')
+    time.sleep(0.3)
+    print(Fore.GREEN + '╚═════╝░╚═════╝░░╚════╝░╚═════╝░░░░░░░╚══════╝░╚════╝░╚══════╝╚═════╝░')
+    time.sleep(0.3)
+    print(Fore.GREEN + '══════════════════════════════════════════════════════════════════════')
+    time.sleep(1.2)
+
     main()
