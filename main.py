@@ -2,7 +2,7 @@ print('Louding...\n')
 try:
     import time
     time.sleep(0.2)
-    print(f'time_version==True')
+    print(f'time_version==True') 
     time.sleep(0.2)
 except:
     print('module ERROR')
